@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  manager-ui:
+    build: 
+      context: .
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "8080:8080"
+    links:
+      - sass-assistant
+
+  sass-assistant:
+    build:
+      context: .
+      dockerfile: SassAssistantDockerfile
+    volumes:
+      - ./:/usr/src/app
